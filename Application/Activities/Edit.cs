@@ -27,7 +27,7 @@ namespace Application.Activities
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                Activity activity = await _context.Activities.FindAsync(request.Activity.Id,cancellationToken);
+                Activity activity = await _context.Activities.FindAsync(new object[]{request.Activity.Id},cancellationToken);
 
                 _mapper.Map(request.Activity, activity);                
 
